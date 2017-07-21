@@ -1,0 +1,265 @@
+* {
+  box-sizing: border-box;
+  background: none;
+  border: none;
+  color: inherit;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+a {
+  display: block;
+}
+
+@font-face {
+  font-family: "LatoReg";
+  src: url("../fonts/Lato-Regular.ttf");
+}
+
+#parentContainer {
+  width: 80vw;
+  height: 80vh;
+  border: 1px solid #aaa;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  transform: translate(-50%, -50%) scale(1);
+  font-family: LatoReg;
+}
+
+.snapped-middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.slide-module {
+  user-select: none;
+  position: absolute;
+  cursor: move;
+  top: 100px;
+  left: 100px;
+}
+
+.slide-module .resize-handle, .slide-module .rotate-handle {
+  background-color: #fff;
+  border: 1px solid #aaa;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  opacity: 0;
+  border-radius: 50%;
+  cursor: ne-resize;
+  background-image: url("../img/gallery/resize.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 90%;
+  z-index: 5;
+}
+
+.slide-module .rotate-handle {
+  top: 15px;
+  background-image: url("../img/gallery/rotate.png");
+  background-size: 80%;
+  cursor: pointer;
+}
+
+.slide-module .resize-handle:active, .slide-module .rotate-handle:active {
+  transform: scale(1.3);
+}
+
+.slide-module:active {
+  opacity: 0.9;
+}
+
+.slide-module:after, .slide-module:active:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border: 1px solid transparent;
+  position: absolute;
+  padding: 3px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all .3s ease;
+}
+
+.slide-module:hover .resize-handle, .slide-module:hover .rotate-handle, .slide-module:active .resize-handle, .slide-module:active .rotate-handle, .slide-module.active .resize-handle, .slide-module.active .rotate-handle {
+  opacity: 1;
+}
+
+.slide-module:hover:after, .slide-module:active:after, .slide-module.active:after {
+  border: 1px dotted #aaa;
+}
+
+.img-module {
+  width: 200px;
+}
+
+.img-module img {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.aligned {
+  position: absolute;
+  height: 150%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #36ec26;
+  width: 1px;
+  min-height: 150px;
+}
+
+.aligned.red {
+  background: red;
+}
+
+.edit-panel {
+  position: absolute;
+  left: 105%;
+  top: 0;
+  background: #eee;
+  padding: 10px;
+  border: 1px solid #aaa;
+  width: 300px;
+}
+
+.spacer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0;
+  z-index: 0 !important;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#toolBar {
+  background: #222;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  font-family: LatoReg;
+  display: flex;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+#toolBar input {
+  background: white;
+  color: #111;
+  width: 60px;
+  margin-left: 10px;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+#toolBar .tool-module {
+  display: flex;
+  width: 20%;
+}
+
+#toolBar .module-group {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+#toolBar .snapper {
+  width: 25px;
+  height: 25px;
+  background: #eee;
+  border-radius: 3px;
+  margin: 0 3px;
+  color: #111;
+  cursor: pointer;
+  padding: 2px;
+  text-align: center;
+}
+
+#toolBar #addText {
+  background: #10b995;
+  color: white;
+  font-weight: bold;
+}
+
+#toolBar #addImg {
+  background: #e7e6c9;
+  color: #333;
+  font-weight: bold;
+}
+
+#textPopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: LatoReg;
+  display: none;
+}
+
+#textPopup .fader {
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#textPopup .form-container {
+  padding: 15px;
+  background: #eee;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 4px;
+}
+
+#textPopup .title {
+  margin-bottom: 20px;
+}
+
+#textPopup #addTextInput {
+  background: white;
+  height: 30px;
+  padding-left: 10px;
+  border-radius: 4px;
+}
+
+#textPopup #submitTextInput {
+  height: 30px;
+  background: #333;
+  color: white;
+  border: none;
+  padding: 0 10px;
+  outline: none;
+  cursor: pointer;
+  border-radius: 4px;
+  display: block;
+  margin: 30px auto 0;
+}
+
+#textPopup.active {
+  display: block;
+}

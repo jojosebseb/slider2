@@ -20,14 +20,56 @@
 </head>
 <body>
 
-    <div id="parentContainer">
+    <div class ="custom-section" id="">
         <div class="spacer"></div>
-        <div class="slide-module text-module">
-            TEXT MODULE
+        <!-- <div class="slide-module text-module">TEXT MODULE</div>
+        <div class="slide-module img-module"><img src="img/gallery/Bumblebee.png" alt=""></div> -->
+        <div class="edit-parent" id="textEditor">
+            <div class="title">
+                Edit Text
+            </div>
+
+            <div class="form-group w50">
+                <span class="caption">
+                    Font Weight:
+                </span>
+                <select name="" class="full-input" id="curSyncFweight">
+                    <option value="normal">Light</option>
+                    <option value="bold">Bold</option>
+                </select>
+            </div>
+            <div class="form-group w50">
+                <span class="caption">
+                    Font Size:
+                </span>
+                <input type="text" class="full-input" value="14px" id="curSyncFsize">
+            </div>
+            <div class="form-group w50">
+                <span class="caption">
+                    Font Family:
+                </span>
+                <select name="" class="full-input" id="curSyncFfam">
+                    <option value="LatoReg">Lato</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Calibri">Calibri</option>
+                    <option value="Times">Times</option>
+                    <option value="Cursive">Cursive</option>
+                </select>
+            </div>
+            <div class="form-group w50">
+                <span class="caption">
+                    Font Color:
+                </span>
+                <input type="color" name="" class="full-input" value="#000000 " id="curSyncFcolor">
+            </div>
+            <div class="form-group">
+                <span class="caption">
+                    Text:
+                </span>
+                <textarea name="" class="full-input" id="curSyncText"></textarea>
+            </div>
         </div>
-        <div class="slide-module img-module">
-            <img src="img/gallery/test.jpg" alt="">
-        </div>
+
     </div>
     <div id="toolBar">
         <div class="tool-module"></div>
@@ -68,16 +110,72 @@
                 <div class="snapper" id="addText">+</div>
                 <div class="snapper" id="addImg">+</div>
             </div>
+            <div class="module-group">
+                <div class="snapper" id="shortcutHandle">S</div>
+                <div class="snapper" id="sectionHandle">L</div>
+            </div>
         </div>
     </div>
-    <div id="textPopup">
-        <div class="fader"></div>
-        <div class="form-container">
-            <div class="title">
-                Add Text
+
+    <div id="shortCut">
+        <div class="container">
+            <div class="form-group">
+                <div class="title">CTRL + SHIFT + S</div>
+                <div class="caption">Toggle Shortcut Menu</div>
             </div>
-            <input type="text" id="addTextInput">
-            <input type="submit" class="" value="Submit" id="submitTextInput">
+            <div class="form-group">
+                <div class="title">L</div>
+                <div class="caption">Toggle Section Menu</div>
+            </div>
+            <div class="form-group">
+                <div class="title">CTRL + SHIFT + V</div>
+                <div class="caption">Snap Vertically</div>
+            </div>
+            <div class="form-group">
+                <div class="title">CTRL + SHIFT + H</div>
+                <div class="caption">Snap Horizontally</div>
+            </div>
+            <div class="form-group">
+                <div class="title">CTRL + C</div>
+                <div class="caption">Copy Element</div>
+            </div>
+            <div class="form-group">
+                <div class="title">CTRL + V</div>
+                <div class="caption">Copy Paste</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="layerSettings">
+        <div class="title">
+            Section Settings
+        </div>
+        <div class="form-group">
+            <span class="caption">Section Name:</span>
+            <input type="text" class="half-input" id="sectionName">
+        </div>
+        <div class="form-group">
+            <span class="caption">Section Width:</span>
+            <input type="text" class="short-input" id="sectionWidth" value="80">
+            <select class="short-input" name="" id="widthUnit" >
+                <option value="px">px</option>
+                <option value="vh">vh</option>
+                <option value="vw" selected>vw</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <span class="caption">Section Height:</span>
+            <input type="text" class="short-input" id="sectionHeight" value="80">
+            <select class="short-input" name="" id="heightUnit" >
+                <option value="px">px</option>
+                <option value="vh" selected>vh</option>
+                <option value="vw">vw</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <span class="caption">Section Background:</span>
+            <input type="color" name="" class="half-input" value="#000000 " id="layerBackground">
         </div>
     </div>
 
